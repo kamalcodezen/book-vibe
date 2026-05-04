@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const NotFoundPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4">
@@ -23,8 +25,8 @@ const NotFoundPage = () => {
         </p>
 
         {/* Button */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="inline-block px-6 py-2.5 rounded-lg text-white font-medium 
           bg-gradient-to-r from-green-500 to-emerald-600 
           hover:from-green-600 hover:to-emerald-700 
@@ -32,7 +34,7 @@ const NotFoundPage = () => {
           active:scale-95 transition duration-300"
         >
           🏠 Go Home
-        </a>
+        </Link>
 
         {/* Footer */}
         <p className="text-xs text-gray-400 mt-6">
