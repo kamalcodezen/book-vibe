@@ -6,13 +6,13 @@ const useHooks = () => {
 
   useEffect(() => {
     const booksDataFetch = async () => {
-      const res = await fetch("booksData.json");
+      const res = await fetch("/booksData.json");
       const data = await res.json();
 
       setTimeout(() => {
         setBooks(data);
         setLoading(false);
-      }, 3000);
+      }, );
     };
 
     booksDataFetch();

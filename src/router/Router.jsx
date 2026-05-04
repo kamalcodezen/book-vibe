@@ -4,6 +4,7 @@ import RootLayout from "../layout/RootLayout";
 import NotFoundPage from "../pages/notFoundPage/NotFoundPage";
 import HomePage from "../pages/homePage/HomePage";
 import AllBooks from "../pages/allBooks/AllBooks";
+import BookDetails from "../pages/bookDetails/BookDetails";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "/allBooks", element: <AllBooks /> },
+      { path: "/bookDetails/:id", element: <BookDetails /> },
     ],
     errorElement: <NotFoundPage />,
   },
