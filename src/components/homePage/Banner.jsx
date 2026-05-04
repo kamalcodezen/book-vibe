@@ -15,7 +15,7 @@ const Banner = () => {
           collection.
         </p>
 
-        <Link to="/books">
+        <Link to="/allBooks">
           <button className="px-6 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition shadow-md">
             View The List
           </button>

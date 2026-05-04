@@ -1,11 +1,11 @@
-import AllBooks from "../../components/homePage/AllBooks";
+import Books from "../../components/homePage/Books";
 import Banner from "../../components/homePage/Banner";
 
 const HomePage = () => {
   return (
     <>
       <Banner />
-      <AllBooks />
+      <Books />
     </>
   );
 };
