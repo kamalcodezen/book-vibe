@@ -1,11 +1,25 @@
-// import { createContext, useState } from "react";
+import { useState } from "react";
+import { bookContext } from "./bookContext";
 
-// const bookContext = createContext();
+const BooksProvider = ({ children }) => {
+  const [readBookDetails, setReadBookDetails] = useState([]);
 
-// const BooksProvider = ({ children }) => {
-//   const [bookDetails, setBooksDetails] = useState();
+  const handleReadBook = (book) => {
+    const readBook = readBookDetails.find(
+      (bookRead) => bookRead.bookId === book.bookId,
+    );
+    if (readBook) {
+      alert("book already added");
+    } else {
+      alert("book added");
+      setReadBookDetails([...readBookDetails, book]);
+    }
+  };
 
-//   return <bookContext value={data}>{children}</bookContext>;
-// };
+  
+  const data = { handleReadBook, readBookDetails };
 
-// export default BooksProvider;
+  return <bookContext.Provider value={data}>{children}</bookContext.Provider>;
+};
+
+export default BooksProvider;

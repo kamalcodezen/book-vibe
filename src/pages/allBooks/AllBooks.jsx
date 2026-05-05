@@ -18,7 +18,7 @@ const AllBooks = () => {
           </h2>
 
           {/* all card */}
-          <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-8 md:gap-10 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-8 md:gap-10 w-full">
             {allBooks.map((book) => (
               <BookCard key={book.bookId} book={book}></BookCard>
             ))}

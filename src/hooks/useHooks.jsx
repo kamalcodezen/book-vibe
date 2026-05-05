@@ -12,7 +12,7 @@ const useHooks = () => {
       setTimeout(() => {
         setBooks(data);
         setLoading(false);
-      }, );
+      },500 );
     };
 
     booksDataFetch();

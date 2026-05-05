@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 const Navbar = () => {
   const navMenu = [
     { label: "Home", path: "/" },
-    { label: "Listed Books", path: "/books" },
+    { label: "Listed Books", path: "/allListedBooks" },
     { label: "Page To Read", path: "/pageRead" },
   ];
 

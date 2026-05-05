@@ -1,15 +1,19 @@
 import { useParams, useNavigate } from "react-router";
 import useHooks from "../../hooks/useHooks";
+import Loader from "../../components/loader/Loader";
+import { useContext } from "react";
+import { bookContext } from "../../context/bookContext";
 
 const BookDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { allBooks, loading } = useHooks();
+  const navigate = useNavigate();
+  const { handleReadBook } = useContext(bookContext);
 
   const book = allBooks.find((b) => b.bookId === parseInt(id));
 
   if (loading) {
-    return <p className="text-center mt-10 text-gray-500">Loading...</p>;
+    return <Loader />;
   }
 
   if (!book) {
@@ -21,7 +25,7 @@ const BookDetails = () => {
       {/* Back */}
       <button
         onClick={() => navigate(-1)}
-        className="text-sm text-green-600 mb-4 hover:underline"
+        className="btn btn-accent font-medium text-sm text-black mb-4 hover:underline"
       >
         ← Back
       </button>
@@ -32,7 +36,7 @@ const BookDetails = () => {
           <img
             src={book.image}
             alt={book.bookName}
-            className="w-full h-[420px] object-cover"
+            className="w-full h-[420px]"
           />
         </div>
 
@@ -81,7 +85,10 @@ const BookDetails = () => {
 
           {/* Buttons */}
           <div className="flex gap-3 pt-4">
-            <button className="flex-1 py-2 rounded-md text-sm text-white bg-green-600 hover:bg-green-700 transition">
+            <button
+              onClick={() => handleReadBook(book)}
+              className="flex-1 py-2 rounded-md text-sm text-white bg-green-600 hover:bg-green-700 transition"
+            >
               📖 Read
             </button>
 

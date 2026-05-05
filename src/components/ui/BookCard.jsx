@@ -1,4 +1,6 @@
+
 import { Link } from "react-router";
+
 
 const BookCard = ({ book }) => {
   const {
@@ -20,7 +22,7 @@ const BookCard = ({ book }) => {
           <img
             src={image}
             alt={bookName}
-            className="w-full h-[380px] object-cover group-hover:scale-105 transition duration-500"
+            className="w-full h-[380px] group-hover:scale-105 transition duration-500"
           />
 
           {/* Gradient overlay */}
