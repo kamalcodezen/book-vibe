@@ -21,6 +21,14 @@ const BooksProvider = ({ children }) => {
 
   // wishLis Book
   const handleWishListBook = (book) => {
+    const readList = readBookDetails.find(
+      (readBook) => readBook.bookId == book.bookId,
+    );
+    if (readList) {
+      toast.error(`${book.bookName} This book already in read list`);
+      return;
+    }
+
     const exitsWishList = wishLisBookDetails.find(
       (wishBook) => wishBook.bookId == book.bookId,
     );
