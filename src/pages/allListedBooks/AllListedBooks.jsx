@@ -1,17 +1,33 @@
-import { useContext } from "react";
-import { bookContext } from "../../context/bookContext";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ListedReadBooks from "../../components/listedBooks/ListedReadBooks";
 import ListedWIshListBooks from "../../components/listedBooks/ListedWIshListBooks";
+import { useState } from "react";
 
 const AllListedBooks = () => {
-  const { readBookDetails } = useContext(bookContext);
-  console.log(readBookDetails);
+  const [shorting, setShorting] = useState("");
 
   return (
     <div className="container mx-auto space-y-3">
-      <h2 className="text-center text-3xl">All Listed Book</h2>
+      {/* dropdown short */}
+      <div className="flex justify-center m-3">
+        <div className="dropdown dropdown-start">
+          <div tabIndex={0} role="button" className="btn m-1">
+            Click ⬇️ {shorting}
+          </div>
+          <ul
+            tabIndex="-1"
+            className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          >
+            <li>
+              <a onClick={() => setShorting("pages")}>Pages</a>
+            </li>
+            <li>
+              <a onClick={() => setShorting("rating")}>Rating</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
       <Tabs>
         <TabList>
@@ -20,10 +36,10 @@ const AllListedBooks = () => {
         </TabList>
 
         <TabPanel>
-          <ListedReadBooks />
+          <ListedReadBooks shorting={shorting} />
         </TabPanel>
         <TabPanel>
-          <ListedWIshListBooks />
+          <ListedWIshListBooks shorting={shorting} />
         </TabPanel>
       </Tabs>
     </div>
