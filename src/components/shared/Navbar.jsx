@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 const Navbar = () => {
   const navMenu = [
     { label: "Home", path: "/" },
+    { label: "All Books", path: "/AllBooks" },
     { label: "Listed Books", path: "/allListedBooks" },
     { label: "Page To Read", path: "/pageRead" },
   ];
@@ -31,25 +32,28 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-4 py-5"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {navMenu.map((menu, ind) => (
+                <NavLink
+                  className={({ isActive }) =>
+                    `relative  ml-7 text-[15px] font-medium transition duration-300 
+                  ${isActive ? "text-green-600" : "text-gray-600 hover:text-green-500"}
+
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                  after:h-[2px] after:w-full 
+                  after:origin-left after:scale-x-0 
+                  after:bg-green-600 after:transition-transform after:duration-300
+
+                  ${isActive ? "after:scale-x-100" : "hover:after:scale-x-100"}
+                  `
+                  }
+                  key={ind}
+                  to={menu.path}
+                >
+                  {menu.label}
+                </NavLink>
+              ))}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">Book Vibe</a>
