@@ -8,7 +8,8 @@ const BookDetails = () => {
   const { id } = useParams();
   const { allBooks, loading } = useHooks();
   const navigate = useNavigate();
-  const { handleReadBook } = useContext(bookContext);
+  const { handleReadBook, handleWishListBook, wishLisBookDetails } =
+    useContext(bookContext);
 
   const book = allBooks.find((b) => b.bookId === parseInt(id));
 
@@ -92,7 +93,10 @@ const BookDetails = () => {
               📖 Read
             </button>
 
-            <button className="flex-1 py-2 rounded-md text-sm border border-gray-300 hover:bg-gray-100 transition">
+            <button
+              onClick={() => handleWishListBook(book)}
+              className="flex-1 py-2 rounded-md text-sm border border-gray-300 hover:bg-gray-100 transition"
+            >
               🤍 Wishlist
             </button>
           </div>

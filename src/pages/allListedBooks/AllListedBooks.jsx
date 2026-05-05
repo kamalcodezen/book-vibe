@@ -3,9 +3,10 @@ import { bookContext } from "../../context/bookContext";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ListedReadBooks from "../../components/listedBooks/ListedReadBooks";
+import ListedWIshListBooks from "../../components/listedBooks/ListedWIshListBooks";
 
 const AllListedBooks = () => {
-  const {  readBookDetails } = useContext(bookContext);
+  const { readBookDetails } = useContext(bookContext);
   console.log(readBookDetails);
 
   return (
@@ -22,7 +23,7 @@ const AllListedBooks = () => {
           <ListedReadBooks />
         </TabPanel>
         <TabPanel>
-          
+          <ListedWIshListBooks />
         </TabPanel>
       </Tabs>
     </div>
