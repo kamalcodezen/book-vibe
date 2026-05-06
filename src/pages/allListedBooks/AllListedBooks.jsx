@@ -13,7 +13,7 @@ const AllListedBooks = () => {
       <div className="flex justify-center m-3">
         <div className="dropdown dropdown-start">
           <div tabIndex={0} role="button" className="btn m-1">
-            Click ⬇️ {shorting}
+            Short ⬇️ {shorting}
           </div>
           <ul
             tabIndex="-1"
