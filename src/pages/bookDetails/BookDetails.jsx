@@ -8,7 +8,7 @@ const BookDetails = () => {
   const { id } = useParams();
   const { allBooks, loading } = useHooks();
   const navigate = useNavigate();
-  const { handleReadBook, handleWishListBook, wishLisBookDetails } =
+  const { handleReadBook, handleWishListBook } =
     useContext(bookContext);
 
   const book = allBooks.find((b) => b.bookId === parseInt(id));

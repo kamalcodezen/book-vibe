@@ -1,13 +1,21 @@
 import { useState } from "react";
 import { bookContext } from "./bookContext";
 import toast from "react-hot-toast";
+import {
+  addReadListLocalDb,
+  getReadListFromLocalDb,
+} from "../utils/readList_localDb";
 
 const BooksProvider = ({ children }) => {
-  const [readBookDetails, setReadBookDetails] = useState([]);
+  const [readBookDetails, setReadBookDetails] = useState(() =>
+    getReadListFromLocalDb(),
+  );
   const [wishLisBookDetails, setWishLisBookDetails] = useState([]);
 
   // read book
   const handleReadBook = (book) => {
+    addReadListLocalDb(book);
+
     const readBook = readBookDetails.find(
       (bookRead) => bookRead.bookId === book.bookId,
     );
