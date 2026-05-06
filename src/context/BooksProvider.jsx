@@ -5,15 +5,22 @@ import {
   addReadListLocalDb,
   getReadListFromLocalDb,
 } from "../utils/readList_localDb";
+import {
+  addWishListLocalDb,
+  getWishListFromLocalDb,
+} from "../utils/wishList_localDb";
 
 const BooksProvider = ({ children }) => {
   const [readBookDetails, setReadBookDetails] = useState(() =>
     getReadListFromLocalDb(),
   );
-  const [wishLisBookDetails, setWishLisBookDetails] = useState([]);
+  const [wishLisBookDetails, setWishLisBookDetails] = useState(() =>
+    getWishListFromLocalDb(),
+  );
 
   // read book
   const handleReadBook = (book) => {
+    // localStorage function
     addReadListLocalDb(book);
 
     const readBook = readBookDetails.find(
@@ -29,6 +36,10 @@ const BooksProvider = ({ children }) => {
 
   // wishLis Book
   const handleWishListBook = (book) => {
+    // localStorage function
+    addWishListLocalDb(book);
+
+    // jodi readlist a thake tahole wishList a add hobe na
     const readList = readBookDetails.find(
       (readBook) => readBook.bookId == book.bookId,
     );
